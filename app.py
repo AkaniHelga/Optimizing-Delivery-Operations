@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-# Load the saved model and features
+# Load saved model and features
 model = joblib.load("tree_ensemble_model.pkl")
 model_features = joblib.load("model_features.pkl")
 
@@ -17,9 +17,8 @@ st.markdown(
 app_mode = st.sidebar.selectbox(
     "Operations Mode", ["Manual Dispatch Calculator", "Live Order Simulator"]
 )
-
+# manual slider/dropdown code here)
 if app_mode == "Manual Dispatch Calculator":
-  # (Keep your existing manual slider/dropdown code here)
   st.subheader("Manual Order Evaluation")
   agent_age = st.sidebar.slider("Agent Age", 20, 50, 30)
   agent_rating = st.sidebar.slider("Agent Rating", 3.0, 5.0, 4.5, 0.1)
@@ -35,7 +34,7 @@ if app_mode == "Manual Dispatch Calculator":
 
   if st.button("Predict Delivery & Calculate Economics"):
     input_data = pd.DataFrame(0, index=[0], columns=model_features)
-    # Fill features matching your structure...
+    # Fill features 
     if "Agent_Age" in input_data.columns:
       input_data["Agent_Age"] = agent_age
     if "Agent_Rating" in input_data.columns:
