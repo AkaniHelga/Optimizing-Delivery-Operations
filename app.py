@@ -94,7 +94,7 @@ elif app_mode == "Live Order Simulator":
 
       # Build input row for model
       # Build input row for model
-      row = pd.DataFrame(0, index=[0], columns=model_features)
+      row = pd.DataFrame(0.0, index=[0], columns=model_features)
       if "Agent_Age" in row.columns:
         row.loc[0, "Agent_Age"] = np.random.randint(22, 45)
       if "Agent_Rating" in row.columns:
